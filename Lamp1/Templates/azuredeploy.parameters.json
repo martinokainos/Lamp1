@@ -1,6 +1,32 @@
-﻿{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "virtualNetworkName": {
+      "value": "vnet1"
+    },
+    "adminUsername": {
+      "value": "martino"
+    },
+    "adminPassword": {
+        "reference": {
+            "keyVault": {
+                "id": "/subscriptions/f7177072-39e4-4cc6-9b31-620ebd692740/resourceGroups/Management/providers/Microsoft.KeyVault/vaults/martinokainos"
+            },
+            "secretName": "defaultPassword"
+        }
+    },
+    "dnsNamePrefix": {
+      "value": "monlap01"
+    },
+    "lapVmSize": {
+      "value": "Standard_D2_v2"
+    },
+    "mysqlNodes": {
+      "value": 1
+    },
+    "mysqlVmSize": {
+      "value": "Standard_D2_v2"
     }
+  }
 }
